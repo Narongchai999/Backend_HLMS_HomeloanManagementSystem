@@ -1,33 +1,41 @@
 module.exports = (sequelize, Datatype) => {
     const Borrower = sequelize.define("borrower",{
-        Borrower_id:{
+        borrower_id:{//ผู้ยืม
             type: Datatype.INTEGER,
             autoIncrement: true,
             allowNull:false,
             primaryKey:true
         },
-        name:{
+        id_card:{//หมายเลขบัตรประชาชน
+            type:Datatype.STRING,
+            allowNull:false
+        },
+        first_name:{
+            type:Datatype.STRING,
+            allowNull:false
+        },
+        last_name:{
             type:Datatype.STRING,
             allowNull:false
         },
         phone:{
-            type:Datatype.STRING,
-            allowNull:false
+            type:Datatype.STRING
         },
-        sex:{
-            type:Datatype.ENUM('Male', 'Female', 'Other'),
-            allowNull:false
+        gender:{
+            type:Datatype.STRING
         },
         age:{
+            type:Datatype.INTEGER
+        },
+        career:{//อาชีพ
+            type:Datatype.STRING
+        },
+        income:{//รายรับรวม
             type:Datatype.INTEGER,
             allowNull:false
         },
-        career:{
-            type:Datatype.STRING,
-            allowNull:false
-        },
-        address:{
-            type:Datatype.STRING,
+        outcome:{//รายจ่ายรวม
+            type:Datatype.INTEGER,
             allowNull:false
         },
     });

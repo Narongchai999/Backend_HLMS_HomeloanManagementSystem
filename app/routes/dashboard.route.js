@@ -1,10 +1,10 @@
-module.exports = (app) =>{
+module.exports = (app) => {
+  //const dashboard = require("../controllers/dashboard.controller");
+  const router = require('express').Router();
 
-    const router = require('express').Router();
+  app.get('/dashboard', (req, res) => {
+    res.send('Dashboard Page');
+  });
 
-    app.get('/dashboard', (req, res) => {
-        res.send('Dashboard Page');
-      });
-      
-    app.use('/dashboard', router);
+  app.use('/dashboard', router);
 };

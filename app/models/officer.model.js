@@ -1,39 +1,52 @@
-module.exports = (sequelize, Datatype) => {
-    const Officer = sequelize.define("officer",{
-        officer_id:{
-            type: Datatype.INTEGER,
+module.exports = (sequelize, DataTypes) => {
+    const Officer = sequelize.define("officer", {
+        officer_id: {//เจ้าหน้าที่
+            type: DataTypes.INTEGER,
             autoIncrement: true,
-            allowNull:false,
-            primaryKey:true
+            allowNull: false,
+            primaryKey: true
         },
-        name:{
-            type:Datatype.STRING,
-            allowNull:false
+        code: { //เลขประจำตัวที่ปรึกษา
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        email:{
-            type:Datatype.STRING,
-            allowNull:false
+        first_name: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        phone:{
-            type:Datatype.STRING,
-            allowNull:false
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        team:{
-            type:Datatype.STRING,
-            allowNull:false
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        commissions:{
-            type:Datatype.INTEGER,
-            allowNull:false
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        username:{
-            type:Datatype.STRING,
-            allowNull:false
+        license: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        password:{
-            type:Datatype.STRING,
-            allowNull:false
+        team: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        commissions: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
+
     return Officer;
 };

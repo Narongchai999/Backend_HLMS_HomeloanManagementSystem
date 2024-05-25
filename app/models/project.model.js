@@ -1,16 +1,16 @@
 module.exports = (sequelize, Datatype) => {
     const Project = sequelize.define("project", {
-        Project_ID: {
+    project_id: {
             type: Datatype.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
-        owner: {
+        owner: { //ชื่อบริษัท
             type: Datatype.STRING,
             allowNull: false
         },
-        name: {
+        name: { //ชื่อบริษัทย่อย
             type: Datatype.STRING,
             allowNull: false
         },
@@ -18,29 +18,41 @@ module.exports = (sequelize, Datatype) => {
             type: Datatype.STRING,
             allowNull: false
         },
-        type: {
+        type: { //ประเภทโครงการ
             type: Datatype.STRING,
             allowNull: false
         },
-        amount: {//จำนวนเงิน
+        amount: {//จำนวน ยูนิต
             type: Datatype.INTEGER,
             allowNull: false
         },
-        price: {
+        min_price: {//ราคาน้อยสุด
+            type: Datatype.INTEGER,
+            allowNull: false
+        },
+        max_price: { //ราคามากสุด
             type: Datatype.INTEGER,
             allowNull: false
         },
         progress: {//ความคืบหน้าของโครงการ
-            type: Datatype.ENUM('Pending', 'In Progress', 'Completed'),
+            type: Datatype.INTEGER,
 
             allowNull: false
         },
         deal: {//ข้อมูลการตกลง
-            type: Datatype.ENUM('Yes', 'No'),
+            type: Datatype.INTEGER,
             allowNull: false
         },
-        modifier: {//ผู้แก้ไขปรับปรุง
+        sale_name: { //ชื่อพนักงานขายบ้าน
             type: Datatype.STRING,
+            allowNull: false
+        },
+        phone: { //เบอร์มือถือพนักงานขายบ้าน
+            type: Datatype.STRING,
+            allowNull: false
+        },
+        date_careate: {//วันที่สร้าง
+            type: Datatype.DATE,
             allowNull: false
         },
         

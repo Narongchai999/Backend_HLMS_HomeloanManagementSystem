@@ -1,6 +1,6 @@
 module.exports = (sequelize, Datatype) => {
     const Interest = sequelize.define("interest", {
-        Interest_ID: {
+        interest_id: { //ดอกเบี้ย
             type: Datatype.INTEGER,
             autoIncrement: true,
             allowNull: false,
@@ -14,15 +14,15 @@ module.exports = (sequelize, Datatype) => {
             type: Datatype.STRING,
             allowNull: false
         },
-        ir1: {//อัตราดอกเบี้ยระดับแรก
+        interest_rate1: {//อัตราดอกเบี้ยระดับแรก
             type: Datatype.FLOAT,
             allowNull: false
         },
-        ir2: {//อัตราดอกเบี้ยระดับสอง
+        interest_rate2: {//อัตราดอกเบี้ยระดับสอง
             type: Datatype.FLOAT,
             allowNull: false
         },
-        eir: {//อัตราดอกเบี้ยประจำปี
+        Annual_interes_rate: {//อัตราดอกเบี้ยประจำปี
             type: Datatype.FLOAT,
             allowNull: false
         }

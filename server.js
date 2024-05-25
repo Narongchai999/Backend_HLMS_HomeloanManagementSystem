@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
+const morgan = require('morgan')
 const cors = require('cors')
+const bodyParse = require('body-parser')
 // Port setting
 require('dotenv').config()
 const PORT = process.env.PORT || 5000;
@@ -11,11 +13,13 @@ app.use(express.json())
 // ยอมรับ key value 
 app.use(express.urlencoded({extended: true}))
 // 
+app.use(morgan('dev'))
 app.use(cors())
+app.use(bodyParse.json({ limit: '10mb' }))
 
 // connect Database
 const db = require('./app/models')
-db.sequelize.sync({force:true}).then(() => { //force คือการ
+db.sequelize.sync({force:false}).then(() => { //force คือการ
     console.log('Database is connected... link:: http://localhost:8080/')
 })
 

@@ -1,25 +1,24 @@
 module.exports = (sequelize, Datatype) => {
     const Insurance = sequelize.define("insurance", {
-        insurance_id: {
+        insurance_id: { //ประกัน
             type: Datatype.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
-        sex: {
-            type: Datatype.ENUM('Male', 'Female', 'Other'),
+        gender: {
+            type: Datatype.STRING,
             allowNull: false
         },
         age: {
+            type: Datatype.INTEGER
+        },
+        insured_period: {//ระยะเวลาเอาประกัน
             type: Datatype.INTEGER,
             allowNull: false
         },
-        insured_period: {//ระยะเวลาคุ้มครอง
-            type: Datatype.DATE,
-            allowNull: false
-        },
         insured_premium: { //ค่าเบี้ยประกัน
-            type: Datatype.STRING,
+            type: Datatype.FLOAT,
             allowNull: false
         },
         

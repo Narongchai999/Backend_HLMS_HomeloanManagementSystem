@@ -1,10 +1,12 @@
-module.exports = (app) =>{
+module.exports = (app) => {
+  const login = require("../controllers/login.controller");
+  const router = require('express').Router();
+  const { authJwt } = require('../Middleware')
 
-    const router = require('express').Router();
+  router.post("/genkey", login.genkey);
+  router.get('/', [authJwt.verifyToken], login.findAll);
+  router.post('/', login.login);
 
-    app.get('/', (req, res) => {
-        res.send('Login Page');
-      });
-
-    app.use('/', router);
+  app.use('/', router);
 };
+
